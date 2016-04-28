@@ -21,7 +21,10 @@ Route::get('/User',function(){
    $user=User::find(1);
    print_r($user);
 });*/
-
+Route::get("/",function()
+{echo "haiii";}
+        
+        );
 Route::get('/Counter',array(
     'as'=>'Counter',
     'uses'=>'counterController@home'
@@ -79,3 +82,13 @@ Route::get('/Album{folder}', array(
 		'as' => 'folder',
 		'uses' => 'PhotoalbumController@folder'
 	));
+Route::get('/GuestBook', 'GuestController@index');
+Route::post('/GuestBook-Upload', array(
+    'as'=>'upload',
+    'uses'=> 'GuestController@upload'
+   ));
+Route::get('/SpellChecker', 'SpellcheckController@index');
+Route::get('/SpellChecker-check', array(
+    'as'=>'check',
+    'uses'=> 'SpellcheckController@check'
+   ));
