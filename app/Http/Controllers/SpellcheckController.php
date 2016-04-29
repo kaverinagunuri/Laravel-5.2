@@ -44,31 +44,54 @@ class SpellcheckController extends BaseController {
         if(empty($word)===FALSE)
       $word= trim($word);
         $object=new SpellcheckController();
-        $object->spellchecker($word);
+        $result=$object->spellchecker($word);
+         return View('SpellCheck', ['Result' => $result]);
+       // print_r($result);
     }
     
     public function spellchecker($word) {
+       
          $sub_words=substr($word,0,1);
-      
-        //  $query="SELECT Word FROM SpellChecker WHERE LEFT(Word,1)='".$sub_words."'"  where(Str::words('Word', 1),$sub_words)->
-//$data=DB::table('SpellChecker')->select('Word')->where(DB::raw('left(Word, 1)',$sub_words))->get();
-     $data=DB::table('SpellChecker')->select('Word')->get();
-     foreach($data as $word)
-     {
-         foreach($word as $x=>$value)
-         {
-             if($x=='Word')
-             {
-                 
- $retrive=Str::words($value,1);
+//      $data_exist=DB::table('SpellChecker')->select('Word')->where('Word',$word)->count();
+//       echo $data_exist;   
+         $data=DB::table('SpellChecker')->select('Word')->where('Word', 'like', $sub_words.'%')->get();
+  
      
-             if($retrive==$sub_words);
-           echo $retrive."<br/>";
-                 
-     }
+         foreach($data as $array)
+    {
+        foreach($array as $x=>$value)
+         {
+          if($x=='Word')
+            {
+             similar_text($word, $value, $percent);
+             if($percent>80)
+                 $output[]= $value;
          }
-             }
-   
-   
     }
     }
+    return (empty($output)?false:$output);
+    }
+}
+    
+//  $query="SELECT Word FROM SpellChecker WHERE LEFT(Word,1)='".$sub_words."'"  where(Str::words('Word', 1),$sub_words)->
+//$data=DB::table('SpellChecker')->select('Word')->where(DB::raw('left(Word, 1)',$sub_words))->get();
+ 
+    
+//    $data=DB::table('SpellChecker')->select('Word')->get();
+//     foreach($data as $word)
+//     {
+//         foreach($word as $x=>$value)
+//         {
+//             if($x=='Word')
+//             {
+//                 
+// $retrive=Str::words($value,1);
+//     
+//             if($retrive==$sub_words);
+//           echo $retrive."<br/>";
+//                 
+//     }
+//         }
+//             }
+//   
+//   
