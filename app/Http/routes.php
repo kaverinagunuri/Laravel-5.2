@@ -93,4 +93,11 @@ Route::get('/SpellChecker-check', array(
     'uses'=> 'SpellcheckController@check'
    ));
 Route::get('/ChatBox', 'ChatController@index');
-Route::get('/WebsiteRating', 'WebsiteRateController@index');
+Route::get('/WebsiteRating', array(
+    'as'=>'websiteindex',
+    'uses'=> 'WebsiteRateController@index'
+   ));
+Route::get('/WebsiteRating/{item}/{rating}/{limit}', array(
+		'as' => 'rating',
+		'uses' => 'WebsiteRateController@rating'
+	));
