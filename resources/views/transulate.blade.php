@@ -1,7 +1,15 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
 <!doctype html>
 <html>
     <head>
-        <title>menu</title>
+        <title>translate</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -27,27 +35,15 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav ">
                         <li ><a href="{{URL::route('translate',['language'=>$language])}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li ><a href="{{URL::route('menu',['language'=>$language])}}"><span class="glyphicon glyphicon-glass"></span> Menu</a></li>
+                       <li ><a href="{{URL::route('translate',['language'=>"english"])}}"><span class="glyphicon glyphicon-home"></span> English</a></li>
+                        <li ><a href="{{URL::route('translate',['language'=>"spanish"])}}"><span class="glyphicon glyphicon-home"></span> Spanish</a></li>
+                        <li ><a href="{{URL::route('translate',['language'=>"telugu"])}}"><span class="glyphicon glyphicon-home"></span> Telugu</a></li>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
-        <?php $x=0;?>
-        <div class="col-md-4 col-md-offset-3">
-        <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    <th>S No</th>
-                    <th>Menu</th>
-                </tr>
-                
-        @foreach($menu as $value)
-        <tr>
-            <td><?php echo ++$x;?></td>
-            <td>{{$value}}</td>
-        </tr>
-        @endforeach
-            </table>
-        </div>
-        </div>
  </body>
 </html>
+

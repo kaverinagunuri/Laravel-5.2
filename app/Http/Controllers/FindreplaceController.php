@@ -30,20 +30,20 @@ class FindreplaceController extends BaseController {
         return view('Findreplace');
     }
     public function operation() {
-         $input=Input::all();
-        
-         $replace=$input['replace'];
-         //$text=$input['text'];
-          $find=explode(',',$input['find']);
-         // $find='/'.trim($find).'/'; 
-         //array_map('trim',$fruit);
-   //echo $find;
-      print_r($find);
-    $replace=(empty($replace)==false)?  preg_split('/,\s+/', $input['replace']):"";
-  $text=(empty($find)===FALSE && empty($replace)===FALSE)? str_replace($find, $replace,$input['text']):$input['text'];
-  
-     echo $text; 
+        $object=new FindreplaceController();
+         $replace=Input::get('replace');
+       $find=Input::get('find');
+     $message=Input::get('text');
+          $find_explode=explode(',',$find);
+           $replace_explode=explode(',',$replace);
+   for($x=0;$x<count($find_explode);++$x){
+       
+        $find_explo[$x]="/".trim($find_explode[$x])."/";
+   } 
+   // $replace=(empty($replace)==false)?  preg_split('/,\s+/', $input['replace']):"";
+  //$text=(empty($find)===FALSE && empty($replace)===FALSE)? str_replace($find, $replace,$input['text']):$input['text'];
+  $text=  preg_replace($find_explo, $replace_explode, $message);
+  return view('Findreplace',['message'=>$text]);
     }
    
-
 }

@@ -11,16 +11,6 @@
 |
 */
 
-//Route::get('/', array(
-//    'as'=>'home',
-//    'uses'=>'HomeController@home'
-//));
-
-/*use App\User;
-Route::get('/User',function(){
-   $user=User::find(1);
-   print_r($user);
-});*/
 Route::get("/",function()
 {echo "haiii";}
         
@@ -101,3 +91,29 @@ Route::get('/WebsiteRating/{item}/{rating}/{limit}', array(
 		'as' => 'rating',
 		'uses' => 'WebsiteRateController@rating'
 	));
+Route::get("/BBcCode",'BbcController@index');
+Route::get("/SearchEngine",'SearchEngineController@index');
+Route::post('/SearchEngine-search', array(
+    'as'=>'Search',
+    'uses'=> 'SearchEngineController@search'
+   ));
+Route::get('shoutbox',array(
+    'as'=>'shoutbox',
+    'uses'=> 'ShoutController@shout'));
+Route::post('/ShoutBox-Upload', array(
+    'as'=>'shoutboxsubmit',
+    'uses'=> 'ShoutController@shoutboxsubmit'
+   ));
+Route::get('translate/{language}', array(
+   "as" => 'translate',
+   'uses' => 'transulateController@translate'
+));
+
+Route::get('translatepage', array(
+   "as" => 'translatepage',
+   'uses' => 'transulateController@main'
+));
+Route::any('menu/{language}',array(
+   'as'=>'menu',
+    'uses'=>'transulateController@menu'));
+
