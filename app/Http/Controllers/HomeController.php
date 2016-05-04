@@ -22,11 +22,11 @@ class HomeController extends Controller {
         echo '<pre>', ($users), '</pre>';
         //return 'Home';
         //return view('layouts/home');
-//        Mail::raw('Text to e-mail', function($message) {
-//            $message->from('kaveri.nagunuri@karmanya.co.in', 'Laravel');
-//
-//            $message->to('nagunurikaveri@gmail.com')->cc('nagunurikaveri@gmail.com');
-//        });
+        Mail::raw('Text to e-mail', function($message) {
+            $message->from('kaveri.nagunuri@karmanya.co.in', 'Laravel');
+
+            $message->to('nagunurikaveri@gmail.com')->cc('nagunurikaveri@gmail.com');
+        });
 //        Mail::send('emails/email',array('name'=>'kaveri'),  function ($message)
 //        {
 //            $message->to('nagunurikaveri@gmail.com','kaveri')->subject('Test Mail');

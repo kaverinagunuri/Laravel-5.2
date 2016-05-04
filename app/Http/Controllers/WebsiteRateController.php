@@ -36,7 +36,7 @@ class WebsiteRateController extends BaseController {
     public function index() {
         //return View('WebsiteRate');
         $object=new WebsiteRateController();
-        $limit=6;
+        $limit=5;
        $article= $object->get_articles($limit);
        if(count($article)==0)
        {

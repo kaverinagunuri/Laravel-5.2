@@ -20,7 +20,7 @@ Route::get('/Counter',array(
     'uses'=>'counterController@home'
 ));
 
-
+Route::get("mail",'HomeController@home');
 Route::get('/SecureUpload', 'SecureController@index');
 //Route::post('/', 'SecureController@uploadFiles');
 Route::post('/Secure',array(
@@ -117,3 +117,18 @@ Route::any('menu/{language}',array(
    'as'=>'menu',
     'uses'=>'transulateController@menu'));
 
+Route::get('/Rss', 'RssController@index');
+Route::get("/Csrf",'CsrfController@index');
+Route::post('Csrf', array(
+   "as" => 'csrf',
+   'uses' => 'CsrfController@csrf'
+));
+Route::get('csrfprocess/{message}',array(
+    'as'=>'csrfprocess',
+    'uses'=>'CsrfController@indexsecond'
+));
+Route::get('MailList','MailController@index');
+Route::post('MailList/Send', array(
+   "as" => 'SendMail',
+   'uses' => 'MailController@send'
+));

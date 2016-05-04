@@ -17,7 +17,7 @@
                 @foreach($array as $value)
                 @foreach($value as $values=>$key)
                 @if($values=='name')
-                <p>{{$key}} -
+                <p>{{$key}}-
                 @endif
                 @if($values=='message')
                 {{$key}}</p>

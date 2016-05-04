@@ -8,7 +8,7 @@
     <body> 
         <div class="container">
             <div class="content">
-              @include('menu')
+             
               <p> 
                   @if(isset($Transulate_value))
                   {{$Transulate_value}}
