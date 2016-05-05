@@ -31,16 +31,17 @@ class AutosuggestController extends BaseController {
     }
     public function suggest() {
          $input=Input::get('search_term');
-         
+       
       $users = DB::table('cities')
              ->where('cityName', 'like', $input.'%')
              ->get();
      //print_r($users);
      foreach ($users as $cities)
      {      
-         foreach ($cities as $city_name)
+         foreach ($cities as $key=>$city_name)
          {
-             echo '<li>'.$city_name.'</li>';
+             if($key=='cityName'){
+             echo '<li>'.$city_name.'</li>';}
          }
      }
     

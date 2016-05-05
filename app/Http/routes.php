@@ -132,3 +132,5 @@ Route::post('MailList/Send', array(
    "as" => 'SendMail',
    'uses' => 'MailController@send'
 ));
+Route::get('UrlShorten','UrlController@index');
+Route::post('shorten','UrlController@shorten');
