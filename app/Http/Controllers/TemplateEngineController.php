@@ -24,12 +24,12 @@ class TemplateEngineController extends BaseController {
         DispatchesJobs,
         ValidatesRequests;
 
-    public function index() {
+    public function home() {
           $template=new TemplateEngineController();
 $template->assign('kaveri','nagunuri');
 $template->assign('age','18');
 //print_r($template);
-$template->render("external");
+$template->render("TemplateEngine");
         return view('TemplateEngine');
     }
     

@@ -20,7 +20,7 @@ $(document).ready(function(){
             $('.result').html(data);
             $('.result li').click(function(){
                 var result_value=$(this).text();
-                //alert(result_value);
+            
                 $('.autosuggest').val(result_value);
             });
                 

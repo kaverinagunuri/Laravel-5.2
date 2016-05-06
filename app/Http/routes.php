@@ -48,12 +48,12 @@ Route::post('/FindReplace',array(
     'as'=>'Findreplace-post',
     'uses'=>'FindreplaceController@operation'
 ));
-Route::get('/TemplateEngine', 'TemplateEngineController@index');
-Route::get('/Transulate', 'TansulateController@index');
-Route::get('/home', array(
-		'as' => 'home',
-		'uses' => 'TansulateController@index'
-	));
+//Route::get('/TemplateEngine', 'TemplateEngineController@index');
+//Route::get('/Transulate', 'TansulateController@index');
+//Route::get('/home', array(
+//		'as' => 'home',
+//		'uses' => 'TansulateController@index'
+//	));
 
 Route::get('/english', array(
 		'as' => 'english',
@@ -82,7 +82,7 @@ Route::get('/SpellChecker-check', array(
     'as'=>'check',
     'uses'=> 'SpellcheckController@check'
    ));
-Route::get('/ChatBox', 'ChatController@index');
+
 Route::get('/WebsiteRating', array(
     'as'=>'websiteindex',
     'uses'=> 'WebsiteRateController@index'
@@ -127,10 +127,31 @@ Route::get('csrfprocess/{message}',array(
     'as'=>'csrfprocess',
     'uses'=>'CsrfController@indexsecond'
 ));
-Route::get('MailList','MailController@index');
-Route::post('MailList/Send', array(
-   "as" => 'SendMail',
-   'uses' => 'MailController@send'
+//Route::get('MailList','MailController@index');
+//Route::post('MailList/Send', array(
+//   "as" => 'SendMail',
+//   'uses' => 'MailController@send'
+//));
+Route::get('MailList',array(
+    'as'=>'mailinglist',
+    'uses'=>'MailController@mailinglist'
 ));
+Route::post('maillistsubmit',array(
+    'as'=>'maillistsubmit',
+    'uses'=> 'MailController@maillistsubmit'));
+
 Route::get('UrlShorten','UrlController@index');
 Route::post('shorten','UrlController@shorten');
+Route::get('LikeButton',array(
+    'as'=>'LikeButton',
+    'uses'=>'LikeController@index'));
+Route::post('like_add','LikeController@like_add');
+Route::post('like_get','LikeController@like_get');
+Route::get('chatwindow/{name}',array(
+    'as'=>'chatwindow',
+    'uses'=>'chatController@chat'
+));
+Route::post('/chatsubmit','chatController@chatsubmit');
+
+Route::post('/getchat','chatController@getchat');
+Route::get('templateengine', 'TemplateEngineController@home');

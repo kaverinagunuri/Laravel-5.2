@@ -1,43 +1,48 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
-
-
+<!doctype html>
 <html>
     <head>
-           <title>Mailing List</title>
-        <link href="/css/styles.css" rel="stylesheet"/>
+        <title>Mailing List</title>
+         <link href="css/styles.css" rel="stylesheet"/>
     </head>
     <body>
-         <div class="container">
-             <div class="content">
-                   <form action="{{ URL::route('SendMail') }}" method="post">
-               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <h2>Mailing List</h2> <p>Send To</p><br/>
-                  <?php $mailcount=0;
-                        $namecount=0;
-                        ?>
-                  @if(isset($users))
-              
-                  @foreach($users as $values)
-<!--              {{$values['FirstName']}}-->
-<input type='checkbox' name='mail_{{$mailcount++}}' value="{{$values['Email']}}" CHECKED />{{$values['FirstName']}}<?php echo " " ?>{{$values['LastName']}}<?php echo "(" ?>{{$values['Email']}} <?php echo ")" ?><br/>
-<input type='hidden' name="name_{{$namecount++}}" value="{{$values['FirstName']}}"><br/>
-<input type="hidden" name="count" value="{{$mailcount}}"/>
-@endforeach
-           
-                @endif
-                    <p>Message:<br/>
-                        <textarea name="message" rows="5" cols="30"></textarea>
-            </p>
-            <input type="submit" name="submit" value="submit"/>
-                   </form></div>
-         </div>
+        
+        <?php $increment = 0; ?>
+       
+             <div class="container">
+            <div class="content">
+            <form action="{{URL::route('maillistsubmit')}}" method="post">
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+                    @if(isset($mail))
+                    @foreach($mail as $value)
+                    @foreach($value as $values=>$key)
+                    @if($values=="name")
+                   {{$key}}
+                            @endif
+                            @if($values=="Email")
+                            ({{$key}})
+                            <input type="checkbox" value="{{$key}}" name="mail_<?php echo $increment++; ?>"><br/>
+                  
+                    @endif
+                    @endforeach
+                    @endforeach
+                    @endif
+                  <br/>  <textarea class="form-control top" name="message" rows="5"></textarea>
+                    <input type="hidden" name="count" value="<?php echo $increment; ?>">
+                   
+                      <br/>  <input type="submit" class="btn btn-default">
+                   
+                </div>
+            </form>
+
+            @if(isset($message))
+            <div class="col-md-6 col-md-offset-3 alert alert-info">
+                {{$message}}
+            </div>
+            @endif
+
+     
+             </div>
+        </div>
     </body>
 </html>
-

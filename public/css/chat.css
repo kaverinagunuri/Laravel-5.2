@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 Apr, 2016, 12:43:35 PM
+    Author     : kaverikarmanya
+*/
+body{
+   font-size: 14px;
+}
+.chat .messages{
+    border: 1px solid #ccc;
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+.chat .message a{
+    color: slategray;
+}
+.chat .message p{
+    margin: 5px 0;
+}
+.chat .entry{
+    width: 260px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 5px;
+    font: len Arial;
+}

@@ -32,38 +32,38 @@ class MailController extends BaseController {
         AuthorizesResources,
         DispatchesJobs,
         ValidatesRequests;
+public function mailinglist() {
 
-    public function index() {
-        $data = DB::select(DB::Raw("SELECT * FROM Mail_Form WHERE Send=1"));
-        $content = json_decode(json_encode($data), true);
-        // echo '<pre>'; print_r($content);
-        return view('Mail', ['users' => $content]);
+        $mail = DB::table('Mail_Form')->select('FirstName', 'Email')->get();
+        return view('Mail', ['mail' => $mail]);
     }
 
-    public function send() {
-        $test = Input::get('count');
-        
-        for ($x = 0; $x <= $test - 1; $x++) {
-            $this->$Email = Input::get('mail_' . $x);
-         //   $name = 'VVVVV.</br>';
-            
+    public function maillistsubmit() {
+        $messagereturn=null;
+        $value = Input::get('count');
+        $message=Input::get('message');
+        // $email=null;
+        for ($x = 0; $x < $value; $x++) {
+            if (Input::get('mail_' . $x)) {
+                $email = Input::get('mail_' . $x);
+               $val= Mail::raw($message, function ($message)use($email) {
 
-            
-        Mail::raw('Text to e-mail', function($message) use ($Email){
- 
-            $message->from('kaveri.nagunuri@karmanya.co.in', 'Laravel');
-
-            $message->to($Email);
-        });
-
-
-
-//            Mail::raw("hai", ['x' => $x, 'name' => $Email], function($message) use ($x, $name) {
-//                $message->from('kaveri.nagunuri@karmanya.co.in', 'Laravel');
-//                $message->subject("hello");
-//                $message->to($Email);
-//            });
+                    $message->from('kaveri.nagunuri@karmanya.co.in', 'kaveri');
+                    $message->to($email)->subject("Mail list");
+                });
+            }
         }
+        if($val){
+            
+            $messagereturn="Mails sent successfully";
+        }
+        else{
+            $messagereturn="Mails could not be sent please try again";
+        }
+        
+        $mail = DB::table('Mail_Form')->select('FirstName', 'email')->get();
+        return view('Mail', ['mail' => $mail,'message'=>$messagereturn]);
     }
 
 }
+
