@@ -21,6 +21,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <h2>  URL Shortening</h2>
                 <div class="heading">
                 <h1>It's a simple. It's short. It's min.bz</h1>
                 <p>Go ahead, enter a long URL and have ot shortened</p>

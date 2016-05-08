@@ -18,6 +18,7 @@
     <body>
          <div class="container">
             <div class="content">
+                <h2>  Create a Rating System for Your Website </h2>
            <form action="{{ URL::route('websiteindex') }}" method="post" enctype="multipart/form-data">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @if(isset($Result))

@@ -49,6 +49,7 @@
     <body>
        <div class="container">
             <div class="content">
+                <h2>  Secure file upload</h2>
            <form action="{{ URL::route('Secure-post') }}" method="post" enctype="multipart/form-data">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="file" name="file">

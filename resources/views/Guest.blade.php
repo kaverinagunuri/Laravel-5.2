@@ -18,6 +18,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <h2>  Guest Book::</h2>
                 <form action="{{URL::route('upload')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div>

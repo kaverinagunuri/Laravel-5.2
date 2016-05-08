@@ -49,7 +49,7 @@
     <body>
        <div class="container">
             <div class="content">
-                
+                <h2> Multiple file upload</h2>
            <form action="{{ URL::route('MultiFile-post') }}" method="post" enctype="multipart/form-data">
              <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="file" name="upload[]" multiple/>

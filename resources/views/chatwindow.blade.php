@@ -25,7 +25,7 @@
         
         <div class="container">
             <div class="col-md-7 border">
-                
+                <h2> Chat Window  </h2>
             </div>
             <div class="col-md-12 top">     
                 

@@ -32,6 +32,7 @@
                 <div class="col-md-12 top">     
                 <div class="col-md-2">
                     <div class="form-group">
+                        <h2> shoutbox</h2>
                         <label for='name' class="control-label">Name:</label>
                         <input type="text" id='name' name="name" value="guest" class="form-control">
                     </div>

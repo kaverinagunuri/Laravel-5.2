@@ -23,6 +23,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <h2>  Like -- Button</h2>
                  <form action="{{ URL::route('LikeButton') }}" method="post" >
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                <div class="view">

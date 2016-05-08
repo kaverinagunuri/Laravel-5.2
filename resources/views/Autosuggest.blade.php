@@ -14,6 +14,7 @@
     <body>
          <div class="container">
             <div class="content">
+                <h2>  Auto suggest</h2>
              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
          <input type="text" class="autosuggest"/>
          <br/>
@@ -23,6 +24,6 @@
                 
             </ul>
         </div>
-                <input type="submit" value="search"/>    
+                 
             </div></div>
     </body>

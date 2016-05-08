@@ -8,6 +8,7 @@
     <body>
          <div class="container">
             <div class="content">
+                <h2>   CURRENCY CONVERTER</h2>
            <form action="{{ URL::route('Currency-post') }}" method="post" enctype="multipart/form-data">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <table>

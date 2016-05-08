@@ -19,6 +19,7 @@
        
         <div class="container">
              <div class="content">
+                 <h2>   Search  Engine</h2>
              <div class="alert">
             @if(isset($errors))
             @foreach($errors as $values)

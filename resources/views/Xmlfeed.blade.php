@@ -8,6 +8,7 @@
     <body> 
         <div class="container">
             <div class="content">
+                <h2>  How to Read XML, RSS and ATOM Feeds</h2>
                 <ul>
                   @if(isset($Xmlfeed_url) && $Xmlfeed_title)
                   <?php

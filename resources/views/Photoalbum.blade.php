@@ -14,6 +14,7 @@
 <body> 
     <div class="container">
         <div class="content">
+            <h2>   PHOTO ALBUM</h2>
             @if(isset($Photoalbum_folder))
             <b>{{$choice}}</b><br/>
             @foreach($Photoalbum_folder as $folder)

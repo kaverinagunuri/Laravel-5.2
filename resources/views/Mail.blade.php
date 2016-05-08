@@ -10,6 +10,7 @@
        
              <div class="container">
             <div class="content">
+                <h2>Mailing List</h2>
             <form action="{{URL::route('maillistsubmit')}}" method="post">
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 

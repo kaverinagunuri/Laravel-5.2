@@ -8,7 +8,7 @@
     <body> 
         <div class="container">
             <div class="content">
-             
+                <h2>  Transulate Page Language</h2>
               <p> 
                   @if(isset($Transulate_value))
                   {{$Transulate_value}}

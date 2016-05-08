@@ -34,22 +34,21 @@ class CurrencyConvertController extends BaseController {
         $amount=$input['amount'];
          $to=$input['to'];
          $obj=new CurrencyConvertController();
-         $obj->currency_convert($amount,$from,$to);
-//         return Redirect::route('currency_convert')
-//                         ->withInput();
-       
+        $converted_amount= $obj->currency_convert($amount,$from,$to);
+          return view('CurrencyConvert', ['converted_currency' => $converted_amount]);
          
     }
     
 
 public function currency_convert($amount,$from,$to)
 {//$get =  File::getRemote("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
-    $get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
-  $get = explode("<span class=bld>",$get);
-  $get = explode("</span>",$get[1]);  
-  $converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
- echo $converted_amount;
-   return view('CurrencyConvert', ['converted_currency' => $converted_amount]);
+    $getData = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
+  $getData = explode("<span class=bld>",$getData);
+  $getData = explode("</span>",$getData[1]);  
+  $converted_amount = preg_replace("/[^0-9\.]/", null, $getData[0]);
+
+ return $converted_amount;
+  
 }
  
     

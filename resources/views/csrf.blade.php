@@ -17,6 +17,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <h2>   Cross Site Request Forgery  Protection</h2>
              @if(isset($message))
        {{$message}}
        @endif

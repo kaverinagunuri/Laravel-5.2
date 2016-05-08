@@ -17,6 +17,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <h2>  Spell Checker</h2>
                 <form action="{{ URL::route('check') }}" method="get">
                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <input type="text" name='word'/><br/>
